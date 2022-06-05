@@ -21,15 +21,19 @@ public class IndexController {
         this.nick = nick;
     }
 
-    @GetMapping(path = "/")
-    public String index(Model model) {
-        IndexController indexController = new IndexController(imie, nick);
-        model.addAttribute("toSee", indexController.getImie());
-        model.addAttribute("test2", indexController.getNick());
+//    @GetMapping(path = "/")
+//    public String index(Model model) {
+//        IndexController indexController = new IndexController(imie, nick);
+//        model.addAttribute("toSee", indexController.getImie());
+//        model.addAttribute("test2", indexController.getNick());
 
-        return "index_J.html";
+//        return "index_J.html";
+//    }
+
+    @GetMapping("/")
+    public String index(){
+        return "index";
     }
-
 
     @GetMapping("/strona2")
     public String indexZLogowaniem(Model model) {
