@@ -1,6 +1,7 @@
 package jarek.security.service;
 
 import jarek.security.model.Account;
+import jarek.security.model.AccountRole;
 import jarek.security.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -32,10 +33,15 @@ public class AuthenticationService implements UserDetailsService {
         if (optionalAccount.isPresent()) {
             Account account = optionalAccount.get();
 
+            String[] roles = account.getAccountRoles()
+                    .stream()
+                    .map(AccountRole::getName).toArray(String[]::new);
+
             return User.builder()
                     .username(account.getUsername())
                     .password(account.getPassword())
-                    .roles("USER")
+                    .roles(roles)
+                    .accountLocked(account.isLocked())
                     .build();
         }
 

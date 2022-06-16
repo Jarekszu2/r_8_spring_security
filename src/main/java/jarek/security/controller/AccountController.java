@@ -38,7 +38,7 @@ public class AccountController {
                            ModelMap modelMap,
                            Model model) {
         // tworzenie komunikatu o błędach jeśli nie są spełnione warunki Account (NotEmpty, Size)
-        // Uwaga: BindingResult musi być bezpośrednio p @Valid Account
+        // Uwaga: BindingResult musi być bezpośrednio po @Valid Account
         if(result.hasErrors()) {
             return registrationError(model, account, result.getFieldError().getDefaultMessage());
         }
