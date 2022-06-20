@@ -1,6 +1,7 @@
 package jarek.security.controller;
 
 import jarek.security.model.Account;
+import jarek.security.model.AccountRole;
 import jarek.security.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 @RequestMapping(path = "/user/")

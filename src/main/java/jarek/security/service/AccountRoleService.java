@@ -13,7 +13,8 @@ import java.util.Set;
 @Service
 public class AccountRoleService {
 
-    @Value("USER,ADMIN,KTOS_INNY")
+//    @Value("USER,ADMIN,KTOS_INNY") nadajemy role przy rejestracji
+    @Value("USER")
     private String[] defaultRoles;
 
     private AccountRoleRepository accountRoleRepository;

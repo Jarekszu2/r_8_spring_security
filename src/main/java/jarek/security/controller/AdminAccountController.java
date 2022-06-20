@@ -35,4 +35,11 @@ public class AdminAccountController {
 
         return "redirect:/admin/account/list";
     }
+
+    @GetMapping(path = "/remove")
+    public String remove(@RequestParam(name = "accountId") Long deletedId) {
+        accountService.remove(deletedId);
+
+        return "redirect:/admin/account/list";
+    }
 }

@@ -49,4 +49,15 @@ public class AccountService {
             accountRepository.save(account);
         }
     }
+
+    public void remove(Long deletedId) {
+        if (accountRepository.existsById(deletedId)) {
+            Account account = accountRepository.getReferenceById(deletedId);
+            if (!account.isAdmin()) {
+                accountRepository.delete(account);
+            }
+        }
+//        accountRepository.deleteById(deletedId);
+    }
+
 }
