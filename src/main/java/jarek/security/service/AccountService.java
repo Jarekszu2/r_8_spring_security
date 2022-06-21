@@ -1,12 +1,14 @@
 package jarek.security.service;
 
 import jarek.security.model.Account;
+import jarek.security.model.dto.AccountResetPasswordRequest;
 import jarek.security.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AccountService {
@@ -60,4 +62,17 @@ public class AccountService {
 //        accountRepository.deleteById(deletedId);
     }
 
+    public Optional<Account> findById(Long accountResetedPasswordId) {
+        return accountRepository.findById(accountResetedPasswordId);
+    }
+
+    public void resetPassword(AccountResetPasswordRequest request) {
+        if (accountRepository.existsById(request.getAccountId())) {
+            Account account = accountRepository.getReferenceById(request.getAccountId());
+
+            account.setPassword(passwordEncoder.encode(request.getResetpassword()));
+
+            accountRepository.save(account);
+        }
+    }
 }
