@@ -37,9 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/css/**",
                         "/js/**",
                         "/webjars/**",
-                        "/user/register",
+                        "/user/register", // usuwam tę opcję dla systemu zamkniętego
                         "/login").permitAll()
                 .anyRequest().authenticated()
+//                .antMatchers("/user/register").hasAnyRole("ADMIN") // żeby wejść na adres user/register trzeba mć role ADMIN'a (dla systemów zamknietych
                 .and()
                     .formLogin()
                         .loginPage("/login")

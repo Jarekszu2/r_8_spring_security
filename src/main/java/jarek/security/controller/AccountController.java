@@ -4,6 +4,7 @@ import jarek.security.model.Account;
 import jarek.security.model.AccountRole;
 import jarek.security.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -28,6 +29,7 @@ public class AccountController {
     }
 
     @GetMapping(path = "/register")
+//    @PreAuthorize(value = "hasRole('ADMIN')") // dla systemów zamknietych
     public String registrationForm(Model model, Account account) {
         model.addAttribute("atr_account", account);
 
@@ -35,6 +37,7 @@ public class AccountController {
     }
 
     @PostMapping(path = "/register")
+//    @PreAuthorize(value = "hasRole('ADMIN')") // dla systemów zamknietych
     public String register(@Valid Account account,
                            BindingResult result,
                            String passwordConfirm,
