@@ -7,10 +7,13 @@
 </head>
 <body>
 <th:block th:replace="fragments :: navigator" th:remove="tag"/>
-<<div class="container">
+<div class="container">
     <h1>Hallo My App</h1>
-    <!--<h1 th:text="${toSee}"></h1>-->
-    <!--<div th:text="${test2}"></div>-->
+    <!--<h1 th:text="Hallo ${toSee}"></h1>-->
+    <!--<h1 th:text="Hallo ${test2}"></h1>-->
+    <h1><span th:text="${test3}"></span> 222</h1>
+    <div><span th:text="${test2}"></span> OK.</div>
+    <!--<div th:text="Hallo ${test3}"></div>-->
 </div>
 
 <th:block th:replace="fragments :: footer" th:remove="tag"/>

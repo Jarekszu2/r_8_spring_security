@@ -7,8 +7,10 @@
 </head>
 <body>
 <th:block th:replace="fragments :: navigator" th:remove="tag"/>
-<<div class="container">
-    <h1>Hallo My App</h1>
+<div class="container">
+    <h1 th:if="${atr_user == null}">Hallo My App</h1>
+    <h1 th:if="${atr_user != null}">Hallo + <span th:text="${atr_imi}"></span></h1>
+    <h1 th:if="${atr_user != null}">Hallo <span th:text="${atr_user}"></span></h1>
 </div>
 
 <th:block th:replace="fragments :: footer" th:remove="tag"/>

@@ -8,13 +8,13 @@
 <body>
 <th:block th:replace="fragments :: navigator" th:remove="tag"/>
 <div class="container">
-    <h1>Roles list of user <span th:text="${atr_account.getUsername()}"></span></h1>
+    <h1>Roles list of user: <span th:text="${atr_account.getUsername()}"></span></h1>
     <div class="row col-md-12">
         <form th:action="@{/admin/account/editRoles}" method="post" class="row col-12">
             <div class="row col-md-12 list-header-row">
                 <div class="col-3">Name</div>
-                <div class="col-3">Previously</div>
                 <div class="col-3"></div>
+                <div class="col-3">Previously</div>
                 <div class="col-3">Current</div>
             </div>
             <div th:each="role : ${atr_roles}" class="row col-md-12 list-data-row">
