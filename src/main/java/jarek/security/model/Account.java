@@ -8,6 +8,7 @@ import org.hibernate.annotations.Cascade;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Base64;
 import java.util.Set;
 
 @Entity
@@ -34,8 +35,18 @@ public class Account {
 
     private boolean locked;
 
+//    @OneToOne
+//    private UserPhoto photo;
+
     public boolean isAdmin() {
         return accountRoles.stream()
                 .anyMatch(accountRole -> accountRole.getName().equals("ADMIN"));
     }
+
+//    public String convertBinImageToString(){
+////        if (photo != null && photo.getFoto().length > 0) {
+////            return Base64.getEncoder().encodeToString(photo.getFoto());
+////        }
+////        return "";
+////    }
 }

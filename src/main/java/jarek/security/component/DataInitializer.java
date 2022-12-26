@@ -28,14 +28,14 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        addDefaultRile("USER");
-        addDefaultRile("ADMIN");
+        addDefaultRole("USER");
+        addDefaultRole("ADMIN");
 
         addDefaultUser("admin", "admin", "ADMIN", "USER");
         addDefaultUser("user", "user", "USER");
     }
 
-    private void addDefaultRile(String role) {
+    private void addDefaultRole(String role) {
         if (!accountRoleRepository.existsByName(role)) {
             AccountRole newRole = new AccountRole();
             newRole.setName(role);
